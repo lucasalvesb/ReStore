@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\User\\ReStore\\API\\API.csproj": {}
+    "C:\\Users\\User\\ReStore\\API\\API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\User\\ReStore\\API\\API.csproj": {
+    "C:\\Users\\User\\ReStore\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\User\\ReStore\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\User\\ReStore\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "c:\\Users\\User\\ReStore\\API\\API.csproj",
+        "projectPath": "C:\\Users\\User\\ReStore\\API\\API.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\User\\ReStore\\API\\obj\\",
+        "outputPath": "C:\\Users\\User\\ReStore\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -25,7 +25,12 @@
           "net7.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/ED-ProjetoSoftware/_packaging/ED-ProjetoSoftware/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/tdbaplicativos/_packaging/Toledo-do-Brasil-Packages/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -48,6 +53,8 @@
               "version": "[7.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.9, )"
             },
