@@ -15,10 +15,11 @@ builder.Services.AddDbContext<StoreContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 }
 );
+builder.Services.AddCors();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline. / order is important here
+// Configure the HTTP request pipeline. / order IS important here
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
