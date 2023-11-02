@@ -1,6 +1,4 @@
 import { AppBar, Switch, Toolbar, Typography } from "@mui/material";
-import { useState } from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -13,8 +11,7 @@ export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
       <Toolbar>
         <Typography variant="h6">Re-Store</Typography>
         <Switch
-          defaultChecked={darkMode}
-          color="default"
+          checked={darkMode}
           onChange={toggleDarkMode}
         />
       </Toolbar>
