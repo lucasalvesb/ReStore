@@ -1,4 +1,5 @@
-import { AppBar, List, ListItem, Switch, Toolbar, Typography } from "@mui/material";
+import { ShoppingCart } from "@mui/icons-material";
+import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 const midLinks = [
@@ -21,7 +22,10 @@ export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
   return (
     <AppBar position="static" sx={{ marginBottom: 4 }}>
       <Toolbar>
-        <Typography variant="h6">Re-Store</Typography>
+        <Typography variant="h6" component={NavLink} 
+        to='/'
+        sx={{color: 'inherit', textDecoration: 'none'}}
+        >Re-Store</Typography>
         <Switch
           checked={darkMode}
           onChange={toggleDarkMode}
@@ -38,6 +42,13 @@ export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
             </ListItem>
           ))}
         </List>
+
+        <IconButton size='large' edge='start' color='inherit' sx={{mr: 2}}>
+          <Badge badgeContent='4' color="secondary">
+            <ShoppingCart />
+          </Badge>
+        </IconButton>
+
         <List sx={{ display: 'flex'}}>
           {rightLinks.map(({title, path}) => (
             <ListItem
