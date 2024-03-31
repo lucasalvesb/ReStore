@@ -1738,11 +1738,8 @@
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://pkgs.dev.azure.com/ED-ProjetoSoftware/_packaging/ED-ProjetoSoftware/nuget/v3/index.json": {},
-        "https://pkgs.dev.azure.com/tdbaplicativos/_packaging/Toledo-do-Brasil-Packages/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
