@@ -11,10 +11,10 @@ namespace API.Controllers
 {
     public class BasketController : BaseApiController
     {
-    private readonly StoreContext _context;
+        private readonly StoreContext _context;
         public BasketController(StoreContext context)
         {
-      _context = context;
+            _context = context;
         }
 
         //endpoint to fetch basket
@@ -26,7 +26,7 @@ namespace API.Controllers
             .ThenInclude(p => p.Product)
             .FirstOrDefaultAsync(x => x.BuyerId == Request.Cookies["buyerId"]);
 
-            if(basket == null) return NotFound();
+            if (basket == null) return NotFound();
 
             return basket;
         }
@@ -42,7 +42,13 @@ namespace API.Controllers
             return StatusCode(201);
         }
 
-        //[HttpDelete]
-        //public async Task<ActionResult> RemoveBasketItem(int productId, int quantity)
+        [HttpDelete]
+        public async Task<ActionResult> RemoveBasketItem(int productId, int quantity) {
+            //get basket
+            //remove item or reduce quantity from 3 to 2 for example
+            //save changes
+
+            return Ok();
+        }
     }
 }
