@@ -43,7 +43,7 @@ export default function BasketPage() {
               </TableCell>
               <TableCell align="right">${(item.price/100).toFixed(2)}</TableCell>
               <TableCell align="right">{item.quantity}</TableCell>
-              <TableCell align="right">${(item.price * item.quantity).toFixed(2)}</TableCell>
+              <TableCell align="right">${(item.price * item.quantity/100).toFixed(2)}</TableCell>
               <TableCell align="right">
                 <IconButton color='error'>
                 <Delete />
