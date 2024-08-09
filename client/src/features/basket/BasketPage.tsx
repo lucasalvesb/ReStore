@@ -1,9 +1,18 @@
 import { IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import { useStoreContext } from "../../app/context/StoreContext";
+import agent from "../../app/api/agent";
 
 export default function BasketPage() {
-  const {basket} = useStoreContext();
+  const {basket, setBasket} = useStoreContext();
+
+    function handleRemoveItem(productId: number) {
+    //setLoading(true);
+    agent.Basket.removeItem(productId)
+        .then(basket => setBasket(basket))
+        .catch(error => console.log(error))
+        //.finally(() => setLoading(false))
+  }
 
   if (!basket) return <Typography variant='h3'>Your basket is empty</Typography>
 
@@ -32,7 +41,7 @@ export default function BasketPage() {
               <TableCell align="right">{item.quantity}</TableCell>
               <TableCell align="right">${(item.price/100 * item.quantity).toFixed(2)}</TableCell>
               <TableCell align="right">
-                <IconButton color='error'>
+                <IconButton onClick={() => handleRemoveItem(item.productId)} color='error'>
                 <Delete />
                 </IconButton>
               </TableCell>
