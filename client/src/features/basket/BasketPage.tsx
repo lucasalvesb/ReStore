@@ -1,10 +1,10 @@
 import { Box, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
-import { Delete } from "@mui/icons-material";
+import { Add, Delete, Remove } from "@mui/icons-material";
 import { useStoreContext } from "../../app/context/StoreContext";
 import agent from "../../app/api/agent";
 
 export default function BasketPage() {
-  const {basket, setBasket} = useStoreContext();
+  const {basket, setBasket, removeItem} = useStoreContext();
 
     function handleRemoveItem(productId: number) {
     //setLoading(true);
@@ -23,7 +23,7 @@ export default function BasketPage() {
           <TableRow>
             <TableCell>Product</TableCell>
             <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Quantity</TableCell>
+            <TableCell align="center">Quantity</TableCell>
             <TableCell align="right">Subtotal</TableCell>
             <TableCell align="right"></TableCell>
           </TableRow>
@@ -41,7 +41,15 @@ export default function BasketPage() {
                 </Box>
               </TableCell>
               <TableCell align="right">${(item.price/100).toFixed(2)}</TableCell>
-              <TableCell align="right">{item.quantity}</TableCell>
+              <TableCell align="center">
+                <IconButton color='error'>
+                  <Remove />
+                </IconButton>
+                {item.quantity}
+                <IconButton color='secondary'>
+                  <Add />
+                </IconButton>
+                </TableCell>
               <TableCell align="right">${(item.price/100 * item.quantity).toFixed(2)}</TableCell>
               <TableCell align="right">
                 <IconButton onClick={() => handleRemoveItem(item.productId)} color='error'>
