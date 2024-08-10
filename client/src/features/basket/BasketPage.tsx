@@ -12,7 +12,7 @@ export default function BasketPage() {
     name: ''
   });
 
-    function handleRemoveItem(productId: number, quantity = 1) {
+    function handleRemoveItem(productId: number, quantity = 1, name:string) {
       setStatus({loading: true, name});
       agent.Basket.removeItem(productId, quantity)
           .then(() => removeItem(productId, quantity))
@@ -74,7 +74,7 @@ export default function BasketPage() {
               <TableCell align="right">
                 <LoadingButton 
                 loading={status.loading && status.name === 'del' + item.productId} 
-                onClick={() => handleAddItem(item.productId, item.quantity, 'del' + item.productId)}  
+                onClick={() => handleRemoveItem(item.productId, item.quantity, 'del' + item.productId)}  
                 color='error'>
                 <Delete />
                 </LoadingButton>
