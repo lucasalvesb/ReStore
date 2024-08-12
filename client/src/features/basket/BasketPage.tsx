@@ -5,6 +5,7 @@ import agent from "../../app/api/agent";
 import { LoadingButton } from "@mui/lab";
 import { useState } from "react";
 import BasketSummary from "./BasketSummary";
+import { currencyFormat } from "../../app/util/util";
 
 export default function BasketPage() {
   const {basket, setBasket, removeItem} = useStoreContext();
@@ -56,7 +57,7 @@ export default function BasketPage() {
                   <span>{item.name}</span>
                 </Box>
               </TableCell>
-              <TableCell align="right">${(item.price/100).toFixed(2)}</TableCell>
+              <TableCell align="right">{currencyFormat(item.price)}</TableCell>
               <TableCell align="center">
                 <LoadingButton 
                 loading={status.loading && status.name === 'rem' + item.productId} 
@@ -72,7 +73,7 @@ export default function BasketPage() {
                   <Add />
                 </LoadingButton>
                 </TableCell>
-              <TableCell align="right">${(item.price/100 * item.quantity).toFixed(2)}</TableCell>
+              <TableCell align="right">{currencyFormat(item.price)}</TableCell>
               <TableCell align="right">
                 <LoadingButton 
                 loading={status.loading && status.name === 'del' + item.productId} 

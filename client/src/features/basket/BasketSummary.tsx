@@ -1,8 +1,13 @@
 import { TableContainer, Paper, Table, TableBody, TableRow, TableCell, Typography } from "@mui/material";
+import { useStoreContext } from "../../app/context/StoreContext";
 
 export default function BasketSummary() {
+    const {basket} = useStoreContext();
     const subtotal = 0;
     const deliveryFee = 0;
+
+    const itemCount = basket?.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    console.log(itemCount)
 
     return (
         <>
