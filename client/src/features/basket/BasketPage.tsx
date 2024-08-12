@@ -1,9 +1,10 @@
-import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import { Add, Delete, Remove } from "@mui/icons-material";
 import { useStoreContext } from "../../app/context/StoreContext";
 import agent from "../../app/api/agent";
 import { LoadingButton } from "@mui/lab";
 import { useState } from "react";
+import BasketSummary from "./BasketSummary";
 
 export default function BasketPage() {
   const {basket, setBasket, removeItem} = useStoreContext();
@@ -12,7 +13,7 @@ export default function BasketPage() {
     name: ''
   });
 
-    function handleRemoveItem(productId: number, quantity = 1, name:string) {
+  function handleRemoveItem(productId: number, quantity = 1, name:string) {
       setStatus({loading: true, name});
       agent.Basket.removeItem(productId, quantity)
           .then(() => removeItem(productId, quantity))
@@ -31,7 +32,8 @@ export default function BasketPage() {
   if (!basket) return <Typography variant='h3'>Your basket is empty</Typography>
 
   return (
-        <TableContainer component={Paper}>
+    <>
+    <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
@@ -84,7 +86,12 @@ export default function BasketPage() {
         </TableBody>
       </Table>
     </TableContainer>
-    
-    
+    <Grid container>
+      <Grid item xs={6} />
+      <Grid item xs={6}>
+        <BasketSummary />
+      </Grid>
+    </Grid>
+    </>
   )
 }
