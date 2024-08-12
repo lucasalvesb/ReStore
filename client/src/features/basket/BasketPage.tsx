@@ -73,7 +73,7 @@ export default function BasketPage() {
                   <Add />
                 </LoadingButton>
                 </TableCell>
-              <TableCell align="right">{currencyFormat(item.price)}</TableCell>
+              <TableCell align="right">${(item.price/100 * item.quantity).toFixed(2)}</TableCell>
               <TableCell align="right">
                 <LoadingButton 
                 loading={status.loading && status.name === 'del' + item.productId} 
