@@ -28,17 +28,17 @@ useEffect(() => {
                         <TableRow>
                             <TableCell colSpan={2}>Delivery fee*</TableCell>
                             <TableCell align="right">{subtotal > 100 ? (
-                              <span style={{ textDecoration: 'line-through' }}>${deliveryFee}</span>
-                              ) : (
-                              `$${deliveryFee}`
-                              )}
-                          </TableCell>
+                            <span style={{ textDecoration: 'line-through' }}>${deliveryFee}</span>
+                            ) : (
+                            `$${deliveryFee}`
+                            )}
+                        </TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell colSpan={2}>Total</TableCell>
                             <TableCell align="right">
                                 {subtotal > 100 ? `$${subtotal}` : `$${subtotal + deliveryFee}`}
-                              </TableCell>
+                            </TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell>
