@@ -1,5 +1,5 @@
 import { Divider, Grid, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
-import { FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Product } from "../../app/models/Product";
 import agent from "../../app/api/agent";
@@ -27,7 +27,7 @@ export default function ProductDetails() {
     .finally(() => setLoading(false))
   }, [id, item])
 
-  function handleInputChange(event: FormEvent<HTMLInputElement>) {
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.currentTarget.value
 
     if (parseInt(value) >= 0 || isNaN(parseInt(value))) {
