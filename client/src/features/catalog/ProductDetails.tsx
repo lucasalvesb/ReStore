@@ -30,7 +30,7 @@ export default function ProductDetails() {
   function handleInputChange(event: any) {
     const value = event.target.value
 
-    if (value > 0 || isNaN(value)) {
+    if (value >= 0 || isNaN(value)) {
     setQuantity(parseInt(value));
     }
   }
@@ -46,7 +46,7 @@ export default function ProductDetails() {
     } else {
       const updatedQuantity = item.quantity - quantity;
       agent.Basket.removeItem(product?.id!, updatedQuantity)
-      .then(() => removeItem(product?.id!, quantity))
+      .then(() => removeItem(product?.id!, updatedQuantity))
       .catch(error => console.log(error))
       .finally(() => setSubmitting(false));
     }
@@ -105,6 +105,7 @@ export default function ProductDetails() {
           </Grid>
           <Grid item xs={6}>
             <LoadingButton
+              disabled={item?.quantity === quantity}
               loading={submitting}
               onClick={handleUpdateCart}
               sx={{height: '55px'}}
