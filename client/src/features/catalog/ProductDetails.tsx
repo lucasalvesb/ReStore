@@ -25,7 +25,15 @@ export default function ProductDetails() {
     .then(response => setProduct(response))
     .catch(error => console.log(error))
     .finally(() => setLoading(false))
-  }, [id])
+  }, [id, item])
+
+  function handleInputChange(event: any) {
+    const value = event.target.value
+
+    if (value >= 0 || isNaN(value)) {
+    setQuantity(event.target.value);
+    }
+  }
 
   if (loading) return <LoadingComponent message="Loading product..."/> 
 
@@ -69,11 +77,13 @@ export default function ProductDetails() {
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField 
+              onChange={handleInputChange}
               variant='outlined'
               type='number'
               label='Quantity in Cart'
               fullWidth
               value={quantity}
+              inputProps={{ min: 0}}
             />
           </Grid>
           <Grid item xs={6}>
