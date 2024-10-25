@@ -30,8 +30,8 @@ export default function ProductDetails() {
   function handleInputChange(event: any) {
     const value = event.target.value
 
-    if (value >= 0 || isNaN(value)) {
-    setQuantity(event.target.value);
+    if (value > 0 || isNaN(value)) {
+    setQuantity(parseInt(value));
     }
   }
 
