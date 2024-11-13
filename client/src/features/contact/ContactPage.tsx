@@ -4,7 +4,8 @@ import { CounterState, decrement, increment } from "./counterReducer";
 
 export default function ContactPage() {
   const dispatch = useDispatch();
-  const {data, title} = useSelector((state: CounterState) => state);
+  const data = useSelector((state: CounterState) => state.data);
+  const title = useSelector((state: CounterState) => state.title);
   return (
     <>
       <Typography variant="h2">
