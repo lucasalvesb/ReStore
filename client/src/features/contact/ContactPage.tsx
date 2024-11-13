@@ -15,8 +15,7 @@ export default function ContactPage() {
     </Typography>
     <ButtonGroup>
       <Button onClick={() => dispatch({type: DECREMENT_COUNTER})} variant="contained" color="error">Decrement</Button>
-      <Button onClick={() => dispatch({type: INCREMENT_COUNTER})} variant="contained" color="error">Decrement</Button>
-      <Button variant="contained" color="primary">Increment</Button>
+      <Button onClick={() => dispatch({type: INCREMENT_COUNTER})} variant="contained" color="primary">Increment</Button>
     </ButtonGroup>
     </>
   )
