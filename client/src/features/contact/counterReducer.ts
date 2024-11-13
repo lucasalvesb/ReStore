@@ -25,7 +25,12 @@ export function decrement(amount = 1) {
   }
 }
 
-export default function counterReducer(state = initialState, action: any) {
+interface CounterAction {
+  type: string
+  payload: number
+}
+
+export default function counterReducer(state = initialState, action: CounterAction) {
   switch (action.type) {
     case INCREMENT_COUNTER:
       return {
