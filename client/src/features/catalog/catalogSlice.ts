@@ -1,4 +1,4 @@
-import { createAsyncThunk, createEntityAdapter } from "@reduxjs/toolkit";
+import { createAsyncThunk, createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { Product } from "../../app/models/Product";
 import agent from "../../app/api/agent";
 
@@ -14,3 +14,17 @@ export const fetchProductsAsync = createAsyncThunk<Product[]>(
     }
   }
 ) 
+
+export const catalogSlice = createSlice({
+  name: 'catalog',
+  initialState: productsAdapter.getInitialState({
+    productsLoaded: false,
+    status: 'idle'
+  }),
+  reducers: {},
+  extraReducers: (builder => {
+    builder.addCase(fetchProductsAsync.pending, (state) => {
+      state.status = 'pendingFetchProducts'
+    })
+  })
+})
